@@ -20,7 +20,6 @@ lazy_static! {
    pub static ref DBCONNECTION: DbConnection = {
       dotenv().ok();
       let connection_string = std::env::var("DATABASE_URL").expect("DATABASE_URL not set");
-      println!("URL, {}", connection_string);
 
       DbConnection {
          db_connection: PgPool::builder()

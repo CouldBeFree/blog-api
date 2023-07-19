@@ -10,6 +10,7 @@ mod database;
 mod json_serialization;
 mod models;
 mod schema;
+mod jwt;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

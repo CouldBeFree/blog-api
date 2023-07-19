@@ -45,7 +45,7 @@ pub async fn register(new_user: web::Json<NewUserSchema>, db: DB) -> impl Respon
     let hashed_password: String = hash(new_user.password.as_str(), DEFAULT_COST).unwrap();
 
     let new_user = NewUser::new(
-        new_user.name.clone(),
+        new_user.username.clone(),
         new_user.email.clone(),
         hashed_password
     );
