@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "blog",
+			"path": "."
+		}
+	],
+	"settings": {
+		"rust-analyzer.showUnlinkedFileNotification": false
+	}
+}
