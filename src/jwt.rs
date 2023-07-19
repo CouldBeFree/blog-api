@@ -31,7 +31,7 @@ impl JwtToken {
     pub fn new(user_id: i32) -> Self {
         // let config = Config::new();
         let minutes = std::env::var("EXPIRE_MINUTES")
-            .expect("JWT_SECRET not set")
+            .expect("EXPIRE_MINUTES not set")
             .parse::<i64>().expect("Cannot convert expire minutes to i64");
 
         let expiration = Utc::now()

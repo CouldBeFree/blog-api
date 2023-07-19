@@ -1,5 +1,3 @@
-use std::os::macos::raw;
-
 use crate::diesel;
 use diesel::prelude::*;
 use actix_web::{web, HttpResponse, Responder};
