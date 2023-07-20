@@ -10,10 +10,10 @@ pub struct NewPost {
 }
 
 impl NewPost {
-    pub fn new(title: String, content: String) -> NewPost {
+    pub fn new(title: String, content: String, user_id: i32) -> NewPost {
         return NewPost {
             title,
-            content
+            content,
         }
     }
 }

@@ -10,7 +10,8 @@ use crate::schema::post;
 pub async fn create_post(post: web::Json<Post>, token: JwtToken, db: DB) -> impl Responder {
     let new_post = NewPost::new(
         post.title.clone(),
-        post.content.clone()
+        post.content.clone(),
+        token.user_id.clone()
     );
 
     println!("token, {}", &token.user_id);
