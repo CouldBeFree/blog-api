@@ -14,8 +14,6 @@ pub async fn create_post(post: web::Json<Post>, token: JwtToken, db: DB) -> impl
         token.user_id.clone()
     );
 
-    println!("token, {}", &token.user_id);
-
     let _ = diesel::insert_into(post::table)
         .values(&new_post)
         .execute(&db.connection);

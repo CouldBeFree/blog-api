@@ -13,7 +13,8 @@ pub async fn login(credentials: web::Json<Login>, db: DB) -> impl Responder {
     let users = user_table::table
         .filter(user_table::columns::username.eq(
             credentials.username.clone()
-        )).load::<User>(&db.connection).unwrap();
+        )).load::<User>(&db.connection)
+        .unwrap();
 
         if users.len() == 0 {
             return HttpResponse::Unauthorized()

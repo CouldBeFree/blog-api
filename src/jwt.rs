@@ -2,6 +2,7 @@ use actix_web::dev::Payload;
 use actix_web::{Error, FromRequest, HttpRequest};
 use actix_web::error::ErrorUnauthorized;
 use futures::future::{Ready, ok, err};
+use dotenv::dotenv;
 
 use serde::{Deserialize, Serialize};
 use jsonwebtoken::{encode, decode, Header, EncodingKey, DecodingKey, Validation};
@@ -16,6 +17,7 @@ pub struct JwtToken {
 
 impl JwtToken {
     pub fn get_key() -> String {
+        dotenv().ok();
         let key_str = std::env::var("JWT_SECRET").expect("JWT_SECRET not set");
                             
         return key_str.to_owned();

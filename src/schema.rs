@@ -12,10 +12,10 @@ diesel::table! {
 diesel::table! {
     post (id) {
         id -> Int4,
-        title -> Nullable<Varchar>,
-        content -> Nullable<Varchar>,
+        title -> Varchar,
+        content -> Varchar,
         date -> Timestamp,
-        user_id -> Nullable<Int4>,
+        user_id -> Int4,
     }
 }
 

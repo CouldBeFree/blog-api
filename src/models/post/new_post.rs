@@ -7,6 +7,7 @@ use crate::schema::post;
 pub struct NewPost {
     pub title: String,
     pub content: String,
+    pub user_id: i32,
 }
 
 impl NewPost {
@@ -14,6 +15,7 @@ impl NewPost {
         return NewPost {
             title,
             content,
+            user_id
         }
     }
 }
