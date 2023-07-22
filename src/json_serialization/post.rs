@@ -4,8 +4,8 @@ use chrono::NaiveDateTime;
 
 #[derive(Deserialize, Validate, Serialize, Debug)]
 pub struct Post {
-    pub date: NaiveDateTime,
-    pub id: i32,
+    pub date: Option<NaiveDateTime>,
+    pub id: Option<i32>,
     #[validate(length(min = 4, max = 50))]
     pub title: String,
     #[validate(length(min = 5, max = 8000))]

@@ -2,6 +2,7 @@ pub mod create_post;
 pub mod delete_post;
 pub mod edit_post;
 pub mod get_post;
+pub mod get_posts_by_user;
 
 use actix_web::web::{ServiceConfig, post, scope, delete, put, get};
 
@@ -9,13 +10,15 @@ use self::create_post::create_post;
 use self::delete_post::delete_post;
 use self::edit_post::edit_post;
 use self::get_post::get_post;
+use self::get_posts_by_user::get_posts_by_user;
 
 pub fn post_views_factory(app: &mut ServiceConfig) {
     app.service(
         scope("v1/post")
-        .route("create", post().to(create_post))
-        .route("delete/{id}", delete().to(delete_post))
-        .route("update/{id}", put().to(edit_post))
-        .route("get/{id}", get().to(get_post))
+        .route("", post().to(create_post))
+        .route("{id}", delete().to(delete_post))
+        .route("{id}", put().to(edit_post))
+        .route("{id}", get().to(get_post))
+        .route("mine", get().to(get_posts_by_user))
     );
 }

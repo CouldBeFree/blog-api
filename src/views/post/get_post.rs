@@ -20,10 +20,10 @@ pub async fn get_post(req: HttpRequest, db: DB) -> impl Responder {
     match post {
         Ok(res) => {
             let json = Json_Response {
-                id: res.id,
+                id: Some(res.id),
                 title: res.title,
                 content: res.content,
-                date: res.date,
+                date: Some(res.date),
             };
             return HttpResponse::Ok().json(json);
         }

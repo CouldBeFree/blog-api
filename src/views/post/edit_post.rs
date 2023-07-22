@@ -22,10 +22,10 @@ pub async fn edit_post(post_request: web::Json<Json_Response>, req: HttpRequest,
     match update_result {
         Ok(updated_post) => {
             let json = Json_Response {
-                id: updated_post.id,
+                id: Some(updated_post.id),
                 title: updated_post.title,
                 content: updated_post.content,
-                date: updated_post.date,
+                date: Some(updated_post.date),
             };
             return HttpResponse::Ok().json(json);
         },
