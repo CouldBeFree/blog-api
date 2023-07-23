@@ -18,7 +18,7 @@ pub fn post_views_factory(app: &mut ServiceConfig) {
         .route("", post().to(create_post))
         .route("{id}", delete().to(delete_post))
         .route("{id}", put().to(edit_post))
-        .route("{id}", get().to(get_post))
         .route("mine", get().to(get_posts_by_user))
+        .route("{id}", get().to(get_post))
     );
 }
