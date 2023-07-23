@@ -5,7 +5,7 @@ use bcrypt::verify;
 
 use crate::schema::user_table;
 
-#[derive(Queryable, Identifiable, Clone)]
+#[derive(Queryable, Identifiable, Clone, Debug)]
 #[table_name="user_table"]
 pub struct User {
     pub id: i32,
