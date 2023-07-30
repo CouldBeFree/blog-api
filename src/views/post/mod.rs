@@ -9,6 +9,7 @@ pub mod remove_like;
 pub mod create_comment;
 pub mod edit_comment;
 pub mod delete_comment;
+pub mod get_posts;
 
 use actix_web::web::{ServiceConfig, post, scope, delete, put, get};
 
@@ -23,6 +24,7 @@ use self::remove_like::remove_like;
 use self::create_comment::create_comment;
 use self::edit_comment::edit_comment;
 use self::delete_comment::delete_comment;
+use self::get_posts::get_posts;
 
 pub fn post_views_factory(app: &mut ServiceConfig) {
     app.service(
@@ -32,6 +34,7 @@ pub fn post_views_factory(app: &mut ServiceConfig) {
         .route("{id}", put().to(edit_post))
         .route("mine", get().to(get_posts_by_user))
         .route("{id}", get().to(get_post))
+        .route("", get().to(get_posts))
         .route("{id}/like/add", post().to(create_like))
         .route("{id}/like/update", put().to(update_like))
         .route("{id}/like/remove", delete().to(remove_like))

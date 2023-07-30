@@ -26,6 +26,8 @@ diesel::table! {
         content -> Varchar,
         date -> Timestamp,
         user_id -> Int4,
+        // positive_counter -> Int4,
+        // negative_counter -> Int4,
     }
 }
 

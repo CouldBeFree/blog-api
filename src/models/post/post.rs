@@ -10,5 +10,7 @@ pub struct Post {
     pub title: String,
     pub content: String,
     pub date: NaiveDateTime,
-    pub user_id: i32
+    pub user_id: i32,
+    // pub positive_counter: i32,
+    // pub negative_counter: i32,
 }
